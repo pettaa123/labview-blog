@@ -6,4 +6,11 @@ Lately, my focus has been on exploring CMH for application modularization. I’v
 
 Instead of the aborted channel case, I’ve found a workaround by implementing an "Exit" Message. This message not only displays encountered errors leading to the exit but also triggers a shutdown signal to my module(s) and an Exit Event within the Event structure, ensuring a smooth stop.
 
+Application Code:
+
 ![StopModuleInQMH](/labview-blog/assets/images/StopModulesInQMH.png)
+
+Module Code:
+
+![StopModuleInQMHmodule](/labview-blog/assets/images/StopModulesInQMHmodule.png)
+
