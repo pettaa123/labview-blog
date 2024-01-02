@@ -44,11 +44,15 @@ int32_t readTif_U16(char* file, Arr2D_U16 lvArray)
 	return EXIT_SUCCESS;
 }
 ```
-From time to time one needs to reads in data, which LabVIEW natively doesn't support. For me this was the case with 16U .tif images. Normally I would promote searching an adequate 3rd-Party toolkit in native LabVIEW code. I found some sources which claim that 16U .tif is not a specified format, which why not every tif is compatible with every software. This is why I preferred to use the read and write methods of the c++ library, which I use for the processing anyways.
-A wrapper dll which fills a LabVIEW array with the read .tif is only reasonable to use, if LabVIEW needs no preknowledge about the amount of data to read in advance.
-This is where ```DSSetHandleSize``` comes in handy. DSSetHandleSize belongs to LabVIEW's memory management functions and lets the DLL resize an array to the desired size, before returning it. This makes the data interaction between LabVIEW and a DLL seamingless and straightforward. The block diagram and the call library node look like this:
+Occasionally, there's a need to handle data in LabVIEW that isn't inherently supported by the platform. I encountered this when dealing with 16U .tif images. Typically, I'd suggest exploring third-party toolkits within LabVIEW, but in this case, the 16U .tif format isn't universally supported, leading to compatibility issues across different software.
+
+To address this, I opted to leverage the read and write functionalities of a C++ library that I already use for image processing. To facilitate the integration with LabVIEW, I created a wrapper DLL. However, for LabVIEW to seamlessly handle data without requiring prior knowledge of the data size, I employed the DSSetHandleSize function. This function, part of LabVIEW's memory management capabilities, allows the DLL to resize an array to the required size before passing it back, ensuring smooth and direct data interaction between LabVIEW and the DLL.
+
+The block diagram and the call library node were structured to support this seamless data exchange, enhancing the overall workflow.
 
 ![ArrayResize](/labview-blog/assets/images/arrayResize.png)
+
+![ArrayResizeCLN](/labview-blog/assets/images/arrayResizeCLN.png)
 
 
 
