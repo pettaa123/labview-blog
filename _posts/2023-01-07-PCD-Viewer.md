@@ -6,5 +6,5 @@ I'm curious about the effectiveness of integrating the 3D scene into LabVIEW and
 
 ![PCD-ViewerFP](/labview-blog/assets/images/pcd_viewer.PNG)
 
-![PCD-ViewerBD](/labview-blog/assets/images/pcdViewer.png.png)
+![PCD-ViewerBD](/labview-blog/assets/images/pcdViewer.png)
 
