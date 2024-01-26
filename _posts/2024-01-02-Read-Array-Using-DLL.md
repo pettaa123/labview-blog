@@ -4,10 +4,10 @@ wrapper.h:
 #include "fundtypes.h"
 #include "extcode.h"
 
-#ifdef CX3DLIBDLL_EXPORTS
-#define CX3DLIBDLL_API __declspec(dllexport)
+#ifdef BLOG_DLL_API_EXPORTS
+#define BLOG_DLL_API __declspec(dllexport)
 #else
-#define CX3DLIBDLL_API __declspec(dllimport)
+#define BLOG_DLL_API __declspec(dllimport)
 #endif
 
 #include "lv_prolog.h"
